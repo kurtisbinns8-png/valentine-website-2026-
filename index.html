@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine 💖</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4f7a;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      background: #ff6b81;
+      color: white;
+    }
+
+    button:hover {
+      background: #ff4757;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1 id="question">Will you be my Valentine? 💘</h1>
+
+  <button onclick="yes()">Yes</button>
+  <button id="noBtn" onmouseover="moveNo()">No</button>
+</div>
+
+<script>
+function yes() {
+  document.getElementById("question").innerText =
+    "Yayyy!! 💖🥰 Now come get your hug!";
+}
+
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 80 + "vw";
+  btn.style.top = Math.random() * 80 + "vh";
+}
+</script>
+
+</body>
+</html>
