@@ -141,12 +141,12 @@ const musicUrl = "";
 
 /** Questions flow **/
 const steps = [
-  {
-    title: `Hey ${valentineName} 💖`,
-    sub: "Quick question… do you like me? 😌",
-    buttons: [
-      { text: "Yes 😇", action: () => nextStep() },
-      { text: "No 🙄", action: () => alert("Liar 😭💖") }
+{
+  title: `Hey ${valentineName} 💖`,
+  sub: "Important question… are you still obsessed with me? 😌😂",
+  buttons: [
+    { text: "Obviously 😏", action: () => nextStep() },
+    { text: "Maybe 👀", action: () => alert("Don't lie... you love me 😌💖") }
     ]
   },
   {
@@ -189,7 +189,14 @@ startHearts();
 renderStep();
 startPhotoLoop();
 setupMusic();
+let secretClicks = 0;
 
+titleEl.addEventListener("click", () => {
+  secretClicks++;
+  if(secretClicks === 5){
+    alert("💌 Secret Message:\nMarcia, you make my world brighter every single day. I love you more than words can explain ❤️");
+  }
+});
 /** Functions **/
 function renderStep(){
   const s = steps[stepIndex];
@@ -275,15 +282,15 @@ function startPhotoLoop(){
 
 function startHearts(){
   const wrap = document.getElementById("floating");
-  const emojis = ["💖","💘","💗","💕","💞","❤️"];
-  for(let i=0;i<24;i++){
+  const emojis = ["🎊","🎉","✨","💖","💘","💗","💕"];
+  for(let i=0;i<30;i++){
     const s = document.createElement("div");
     s.className = "heart";
     s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
     s.style.left = (Math.random()*100) + "vw";
-    s.style.animationDuration = (10 + Math.random()*10) + "s";
+    s.style.animationDuration = (8 + Math.random()*10) + "s";
     s.style.animationDelay = (-Math.random()*10) + "s";
-    s.style.fontSize = (14 + Math.random()*18) + "px";
+    s.style.fontSize = (14 + Math.random()*20) + "px";
     wrap.appendChild(s);
   }
 }
